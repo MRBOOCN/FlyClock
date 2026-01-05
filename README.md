@@ -1,88 +1,53 @@
-# Bitfocus Companion Generic FlyClock Module
+# FlyClock Companion Module
 
-This module provides a generic FlyClock connection for Bitfocus Companion, allowing you to send and receive messages from any FlyClock server.
+This module allows Bitfocus Companion to control FlyClock devices via WebSocket.
 
 ## Features
 
-- Connect to any FlyClock server (ws:// or wss://)
-- Send text commands
-- Send JSON objects
-- Auto-reconnect functionality
-- Connection status feedback
-- Message received feedback
-- Preset commands
+- Start/Stop countdown timer
+- Pause/Resume functionality
+- Flash display
+- Black screen toggle
+- Show/Hide controls
+- Reset timer
+- Toggle between machine time display modes
+- Switch between countdown and count-up modes
+- Toggle between manual and automatic control modes
 
 ## Installation
 
-1. Clone or download this repository to your Companion modules directory
-2. Run `npm install` in the module directory
-3. Restart Companion
-4. Add a new instance of "Generic FlyClock"
+1. Download the module package (.tgz file)
+2. In Companion, go to Settings > Modules
+3. Click "Install Module" and select the .tgz file
+4. Restart Companion if prompted
 
 ## Configuration
 
-### General Settings
+1. Add a new instance of the FlyClock module
+2. Configure the following settings:
+   - **Host**: IP address of your FlyClock device (default: 192.168.0.38)
+   - **Control Port**: WebSocket control port (default: 7777)
+   - **Web Port**: HTTP web interface port (default: 8888)
 
-- **FlyClock URL**: The URL of the FlyClock server (e.g., `ws://localhost:8080` or `wss://example.com:443`)
-- **Reconnect Interval**: Time in milliseconds to wait before attempting to reconnect after a disconnection
-- **Auto Reconnect**: Enable or disable automatic reconnection
+## Usage
 
-## Actions
+The module provides several actions and feedbacks:
 
-### Send Text
-Send a text command over FlyClock.
+### Actions
+- Basic timer controls (Start/Stop, Pause/Resume, etc.)
+- Mode toggles (Show time, Timing mode, Control mode)
+- Adjust default time
 
-**Options:**
-- **Command**: The text to send
+### Feedbacks
+- Connection status
+- Playback status
+- Current mode indicators
 
-### Send JSON
-Send a JSON object over FlyClock.
+### Presets
+Pre-configured buttons for common operations with visual feedback.
 
-**Options:**
-- **JSON Object**: The JSON object to send (must be valid JSON)
+## Requirements
 
-## Feedbacks
-
-### Connected
-Indicates if the FlyClock connection is active.
-
-**Style:**
-- Green background when connected
-
-### Message Received
-Indicates if a message has been received from the FlyClock server.
-
-**Style:**
-- Yellow background when a message is received
-
-## Presets
-
-### Send Hello
-Sends a simple "hello" command over FlyClock with connection status feedback.
-
-## Example Usage
-
-### Sending Commands
-1. Add a button in Companion
-2. Set the action to "Generic FlyClock: Send Text"
-3. Enter the command to send (e.g., `toggle_power`)
-4. Save the button
-
-### Receiving Messages
-Messages received from the FlyClock server are logged in the Companion debug logs.
-You can extend the `handleIncomingMessage` function in `main.js` to process incoming messages and update feedbacks.
-
-## Development
-
-### Dependencies
-- `@companion-module/base`: Companion base module
-- `ws`: FlyClock library
-
-### Running Tests
-```bash
-npm test
-```
-
-## License
-
-MIT
+- FlyClock device with WebSocket server enabled
+- Network connectivity between Companion and FlyClock
+- Node.js 14+ (handled by Companion)
