@@ -1,53 +1,68 @@
-# FlyClock Companion Module
+# companion-module-Bob-FlyClock
 
-This module allows Bitfocus Companion to control FlyClock devices via WebSocket.
+Bitfocus Companion模块，用于控制Bob FlyClock设备通过WebSocket协议。
 
-## Features
+## 功能特性
 
-- Start/Stop countdown timer
-- Pause/Resume functionality
-- Flash display
-- Black screen toggle
-- Show/Hide controls
-- Reset timer
-- Toggle between machine time display modes
-- Switch between countdown and count-up modes
-- Toggle between manual and automatic control modes
+- 时间设置功能
+- 控制模式切换功能（半自动/全自动）
+- 开始/停止控制功能
+- 暂停/恢复功能
+- 闪烁控制功能
+- 黑屏/取消黑屏功能
+- 显示/隐藏控制功能
+- 重置功能
+- 时钟时间显示功能
+- 计时模式设置功能
 
-## Installation
+## 安装
 
-1. Download the module package (.tgz file)
-2. In Companion, go to Settings > Modules
-3. Click "Install Module" and select the .tgz file
-4. Restart Companion if prompted
+1. 下载模块的.tgz文件
+2. 在Companion中，进入"添加模块"界面
+3. 选择"从文件安装"
+4. 选择下载的.tgz文件
+5. 安装完成后，添加模块实例并配置WebSocket URL
 
-## Configuration
+## 配置
 
-1. Add a new instance of the FlyClock module
-2. Configure the following settings:
-   - **Host**: IP address of your FlyClock device (default: 192.168.0.38)
-   - **Control Port**: WebSocket control port (default: 7777)
-   - **Web Port**: HTTP web interface port (default: 8888)
+- **WebSocket URL**: Bob FlyClock设备的WebSocket服务地址
+- **Reconnect**: 是否在WebSocket错误时自动重连
+- **Append termination character**: 发送命令时追加的终止字符
+- **Debug messages**: 是否记录调试消息
 
-## Usage
+## 使用
 
-The module provides several actions and feedbacks:
+模块提供了多种动作，可通过Companion的按钮和触发器使用：
 
-### Actions
-- Basic timer controls (Start/Stop, Pause/Resume, etc.)
-- Mode toggles (Show time, Timing mode, Control mode)
-- Adjust default time
+- **Set Countdown Time**: 设置倒计时时间
+- **Set Semi-Automatic Mode**: 设置半自动模式
+- **Set Full-Automatic Mode**: 设置全自动模式
+- **Start/Stop**: 开始/停止计时
+- **Pause/Resume**: 暂停/恢复计时
+- **Shine Control**: 闪烁控制
+- **Black/White Screen**: 黑屏/取消黑屏
+- **Show/Hide Window**: 显示/隐藏窗口
+- **Reset Timer**: 重置计时器
+- **Show Machine Time**: 显示/隐藏机器时间
+- **Set Timing Mode**: 设置计时模式（正计时/倒计时）
 
-### Feedbacks
-- Connection status
-- Playback status
-- Current mode indicators
+## 变量
 
-### Presets
-Pre-configured buttons for common operations with visual feedback.
+模块提供了以下变量，可在Companion中使用：
 
-## Requirements
+- **controlMode**: 控制模式信息
+- **showTime**: 显示时间信息
+- **timingStatus**: 计时状态信息
+- **defaultCountdownDuration**: 默认倒计时时长
+- **specialStatus**: 特殊状态信息
 
-- FlyClock device with WebSocket server enabled
-- Network connectivity between Companion and FlyClock
-- Node.js 14+ (handled by Companion)
+## 反馈
+
+模块提供了以下反馈，可用于按钮状态：
+
+- **Control Mode**: 显示当前控制模式
+- **Timing Status**: 显示当前计时状态
+
+## 版本
+
+1.0.0
