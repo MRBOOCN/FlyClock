@@ -8,6 +8,11 @@
 		"package": "companion-module-build"
 	},
 	"license": "MIT",
+	"homepage": "https://github.com/MRBOOCN/FlyClock#readme",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MRBOOCN/FlyClock.git"
+	},
 	"dependencies": {
 		"@companion-module/base": "~1.14.1",
 		"ws": "^8.18.2"
