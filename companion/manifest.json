@@ -1,7 +1,7 @@
 {
-	"id": "Bob-FlyClock",
-	"name": "Bob FlyClock",
-	"shortname": "Bob-FlyClock",
+	"id": "companion-module-Bob-FlyClock",
+	"name": "FlyClock",
+	"shortname": "FlyClock",
 	"description": "Control Bob FlyClock device via WebSocket",
 	"version": "1.1.0",
 	"license": "MIT",
