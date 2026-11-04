@@ -63,6 +63,25 @@ Bitfocus Companion模块，用于控制Bob FlyClock设备通过WebSocket协议�
 - **Control Mode**: 显示当前控制模式
 - **Timing Status**: 显示当前计时状态
 
-## 版本
+## 本地打包
 
-1.0.0
+本模块使用 Bitfocus Companion 官方构建工具 `@companion-module/tools` 打包。
+
+1. 安装依赖：
+   ```bash
+   npm install
+   # 或使用 yarn：
+   yarn install
+   ```
+
+2. 执行打包，生成可导入 Companion 的 `*.tgz`：
+   ```bash
+   npm run package
+   # 或：
+   yarn package
+   ```
+
+3. 打包产物为 `companion-module-bob-FlyClock-<version>.tgz`（由 `manifest.json` 的 `id` 与 `version` 派生），
+   即最终可分发的模块文件，**须随仓库一并提交**（请勿在 `.gitignore` 中忽略 `*.tgz`）。
+
+> 依赖说明：`@companion-module/base` 为运行时依赖，`@companion-module/tools` 仅用于构建。

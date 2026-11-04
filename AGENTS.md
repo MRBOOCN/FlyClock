@@ -1,0 +1,17 @@
+# AGENTS.md — 项目工作规则
+## 核心规则
+- **最小修复**：不建补丁、不引入过度容错，保持简洁可维护。
+- **文档同步**：规则/架构/边界变更更新本文档；任何版本/变更流水只写入 [CHANGELOG.md](CHANGELOG.md)（倒序、新条目在表头行之下顶部追加），本文档严禁内嵌版本表或变更流水，末尾「版本记录」小节仅作引用。
+- **逐步提交**：每完成一步操作，主动创建对应的 Git 提交记录（commit 写入同一 `.git`，GitHub Desktop 刷新后即可见）；提交信息（commit message）使用中文。
+## 项目概览
+Bitfocus Companion 模块，通过 WebSocket 协议控制 Bob FlyClock 设备。提供时间设置、控制模式切换（半自动/全自动）、开始/停止、暂停/恢复、闪烁、黑屏、显示/隐藏、重置、机器时间显示、计时模式设置等动作，以及控制模式、计时状态反馈与多个变量。
+## 架构与边界
+- 入口 `main.js` 继承 `InstanceBase`，负责 WebSocket 连接管理、命令收发、变量/反馈/动作定义。
+- 配置字段见 `getConfigFields()`：WebSocket URL、重连、终止字符、调试消息。
+- 升级脚本见 `upgrade.js`。
+- 模块标识与包名遵循 bob 命名规范（`companion/manifest.json` 与 `package.json`）。
+## 已知约定与边界
+- 命令以 `cmd=` / `cmdd=` / `msg=` 前缀经 WebSocket 收发。
+- 反馈消息经 `validateFeedbackMessage` 校验后分类存储，变量与反馈状态据此更新。
+## 版本记录
+见 [CHANGELOG.md](CHANGELOG.md)。
