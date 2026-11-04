@@ -651,9 +651,9 @@ class BobFlyClockInstance extends InstanceBase {
 				callback: (feedback) => {
 					const status = feedback.options.status
 					if (status === 'valid') {
-						return this.lastFeedbackMessage && typeof this.lastFeedbackMessage === 'string' && !this.lastFeedbackMessage.startsWith('[INVALID]')
+						return this.lastFeedbackMessage && typeof this.lastFeedbackMessage === 'string' && !this.lastFeedbackMessage.startsWith('[无效]')
 					} else if (status === 'invalid') {
-						return this.lastFeedbackMessage && typeof this.lastFeedbackMessage === 'string' && this.lastFeedbackMessage.startsWith('[INVALID]')
+						return this.lastFeedbackMessage && typeof this.lastFeedbackMessage === 'string' && this.lastFeedbackMessage.startsWith('[无效]')
 					} else if (status === 'error') {
 						return this.feedbackErrorCount > 0
 					} else if (status === 'machine_time') {
