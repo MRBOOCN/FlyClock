@@ -81,7 +81,7 @@ Bitfocus Companion模块，用于控制Bob FlyClock设备通过WebSocket协议�
    yarn package
    ```
 
-3. 打包产物为 `companion-module-bob-FlyClock-<version>.tgz`（由 `manifest.json` 的 `id` 与 `version` 派生），
+3. 打包产物为 `companion-module-Bob-FlyClock-<version>.tgz`（由 `manifest.json` 的 `id` 与 `version` 派生），
    即最终可分发的模块文件，**须随仓库一并提交**（请勿在 `.gitignore` 中忽略 `*.tgz`）。
 
 > 依赖说明：`@companion-module/base` 为运行时依赖，`@companion-module/tools` 仅用于构建。

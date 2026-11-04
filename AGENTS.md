@@ -14,6 +14,6 @@ Bitfocus Companion 模块，通过 WebSocket 协议控制 Bob FlyClock 设备。
 - 命令以 `cmd=` / `cmdd=` / `msg=` 前缀经 WebSocket 收发。
 - 反馈消息经 `validateFeedbackMessage` 校验后分类存储，变量与反馈状态据此更新。
 - 打包产物 `*.tgz` 是可分发文件，**必须纳入版本库**；`.gitignore` 不得忽略 `*.tgz`（仅忽略 `node_modules/`、`/pkg` 等构建中间物）。
-- 模块标识（`id` 与 `package.json` 的 `name`）须为官方形态 `companion-module-bob-FlyClock`；显示名（`name`/`products`）为无前缀的 `FlyClock`。
+- 模块标识（`id` 与 `package.json` 的 `name`）须为官方形态 `companion-module-Bob-FlyClock`；显示名（`name`/`products`）为无前缀的 `FlyClock`。
 ## 版本记录
 见 [CHANGELOG.md](CHANGELOG.md)。
