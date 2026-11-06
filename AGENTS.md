@@ -9,10 +9,12 @@ Bitfocus Companion 模块，通过 WebSocket 协议控制 Bob FlyClock 设备。
 - 入口 `main.js` 继承 `InstanceBase`，负责 WebSocket 连接管理、命令收发、变量/反馈/动作定义。
 - 配置字段见 `getConfigFields()`：WebSocket URL、重连、终止字符、调试消息。
 - 升级脚本见 `upgrade.js`。
+- 一键打包入口为根目录 `Build.bat`（双击运行，自动补齐缺失依赖与文档后执行 `npm run package` 并校验本次 `*.tgz` 产物；只补齐不覆盖已有配置）。
 - 模块标识与包名遵循 bob 命名规范（`companion/manifest.json` 与 `package.json`）。
 ## 已知约定与边界
 - 命令以 `cmd=` / `cmdd=` / `msg=` 前缀经 WebSocket 收发。
 - 反馈消息经 `validateFeedbackMessage` 校验后分类存储，变量与反馈状态据此更新。
+- 模块内文档为 `companion/HELP.md`（Companion 加载）；根 `HELP.md` 为简要说明（`Build.bat` 的检查项），改动模块文档时同步根文件。
 - 打包产物 `*.tgz` 是可分发文件，**必须纳入版本库**；`.gitignore` 不得忽略 `*.tgz`（仅忽略 `node_modules/`、`/pkg` 等构建中间物）。
 - 模块标识（`id` 与 `package.json` 的 `name`）须为官方形态 `companion-module-Bob-FlyClock`；显示名（`name`/`products`）为无前缀的 `FlyClock`。
 ## 版本记录
